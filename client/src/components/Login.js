@@ -15,7 +15,12 @@ const LoginForm = () => {
             const response = await axios.post('https://food-order-vert-kappa.vercel.app/login', {
                 email,
                 password
-            });
+            },{
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Add other headers as needed
+                    // 'Authorization': `Bearer ${token}`
+                }});
             console.log(response.data); // handle successful login (e.g., store token)
             localStorage.setItem('myKey', 'myValue');
             setRedirect(true); // Set redirect state to true

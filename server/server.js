@@ -6,7 +6,14 @@ const bcrypt = require('bcryptjs');
 const app = express();
 
 // Middleware
+const corsOptions = {
+  origin: ["https://food-order-7eo1.vercel.app", "http://localhost:5000"],
+  methods: "POST,GET,PUT,DELETE,HEAD,PATCH",
+  credentials: true,
+  allowedHeaders: ['Content-Type']
+};
 
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // MongoDB Connection

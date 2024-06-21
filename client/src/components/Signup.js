@@ -14,7 +14,12 @@ const SignupForm = () => {
             const response = await axios.post('https://food-order-vert-kappa.vercel.app/signup', {
                 email,
                 password
-            });
+            },{
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Add other headers as needed
+                    // 'Authorization': `Bearer ${token}`
+                }});
             console.log(response.data); // handle successful signup
             setSignedUp(true); // Update state to indicate successful signup
         } catch (error) {

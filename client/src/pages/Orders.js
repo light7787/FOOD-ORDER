@@ -47,6 +47,11 @@ const Orders = () => {
             setOrders([...orders, res.data]); // Assuming res.data is the newly created order
             setCustomerName('');
             setFoodItem('');
+            const headers = {
+                'Content-Type': 'application/json',
+                // Add authorization token if needed
+                // 'Authorization': `Bearer ${localStorage.getItem('token')}`
+            };
         } catch (err) {
             if (err.response && err.response.data) {
                 setError(err.response.data.error || err.message);
