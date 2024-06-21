@@ -15,7 +15,7 @@ app.use(cors({
 app.use(express.json());
 
 // MongoDB Connection
-const mongoURI = 'mongodb+srv://chinufreefire1233:888888@cluster0.rarauvt.mongodb.net/food?retryWrites=true&w=majority'; // Replace with your MongoDB Atlas URI
+const mongoURI = 'mongodb+srv://chinufreefire1233:gdEZKGuAbxIf2cCO@cluster0.rarauvt.mongodb.net/food?retryWrites=true&w=majority'; // Replace with your MongoDB Atlas URI
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
