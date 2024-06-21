@@ -12,7 +12,7 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('food-order-vert-kappa.vercel.app/login', {
+            const response = await axios.post('https://food-order-vert-kappa.vercel.app/login', {
                 email,
                 password
             });
