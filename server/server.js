@@ -8,6 +8,7 @@ const app = express();
 app.use(cors({
     origin: 'https://food-order-7eo1.vercel.app', // Replace with your actual frontend URL
     methods: 'GET,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: ['Content-Type', 'Authorization'], 
     credentials: true // Enable CORS with credentials
 }));
 
