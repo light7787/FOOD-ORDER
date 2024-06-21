@@ -15,8 +15,8 @@ const Orders = () => {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.get('food-order-vert-kappa.vercel.app/orders');
-            setOrders(res.data);
+            const res = await axios.get('https://food-order-vert-kappa.vercel.app/orders');
+            setOrders(res.data); // Assuming res.data is an array of orders
         } catch (err) {
             console.error('Failed to fetch orders:', err);
         }
@@ -24,8 +24,8 @@ const Orders = () => {
 
     const fetchFoodItems = async () => {
         try {
-            const res = await axios.get('food-order-vert-kappa.vercel.app/food-items');
-            setFoodItems(res.data);
+            const res = await axios.get('https://food-order-vert-kappa.vercel.app/food-items');
+            setFoodItems(res.data); // Assuming res.data is an array of food items
         } catch (err) {
             console.error('Failed to fetch food items:', err);
         }
@@ -43,8 +43,8 @@ const Orders = () => {
                 foodItem,
                 totalAmount: selectedFoodItem.price
             };
-            const res = await axios.post('food-order-vert-kappa.vercel.app/orders', newOrder);
-            setOrders([...orders, res.data]);
+            const res = await axios.post('https://food-order-vert-kappa.vercel.app/orders', newOrder);
+            setOrders([...orders, res.data]); // Assuming res.data is the newly created order
             setCustomerName('');
             setFoodItem('');
         } catch (err) {
@@ -98,12 +98,16 @@ const Orders = () => {
             {error && <div className="text-red-500 mb-4">{error}</div>}
 
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {orders.map(order => (
-                    <li key={order._id} className="bg-gray-100 border p-4 rounded">
-                        <p className="text-lg font-bold">{order.customerName}</p>
-                        <p className="text-gray-700">{order.foodItem} - ${order.totalAmount}</p>
-                    </li>
-                ))}
+                {orders.length === 0 ? (
+                    <li className="text-gray-500 text-center">No orders yet</li>
+                ) : (
+                    orders.map(order => (
+                        <li key={order._id} className="bg-gray-100 border p-4 rounded">
+                            <p className="text-lg font-bold">{order.customerName}</p>
+                            <p className="text-gray-700">{order.foodItem} - ${order.totalAmount}</p>
+                        </li>
+                    ))
+                )}
             </ul>
         </div>
     );
