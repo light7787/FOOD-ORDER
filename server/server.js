@@ -31,6 +31,12 @@ const orderSchema = new mongoose.Schema({
     foodItem: String,
     totalAmount: Number
 });
+const corsOptions = {
+    origin: 'https://your-react-app.vercel.app', // Replace with your actual client URL
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Allow cookies to be sent
+    optionsSuccessStatus: 204 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  };
 
 const Order = mongoose.model('Order', orderSchema);
 
@@ -53,6 +59,9 @@ const foodItems = [
 // Endpoint to get all food items
 app.get('/food-items', (req, res) => {
     res.json(foodItems);
+});
+app.get('/', (req, res) => {
+    res.json("hiii");
 });
 
 // Signup Endpoint
