@@ -9,8 +9,8 @@ const app = express();
 const corsOptions = {
   origin: ["https://food-order-7eo1.vercel.app", "http://localhost:5000"],
   methods: "POST,GET,PUT,DELETE,HEAD,PATCH",
-  credentials: true,
-  allowedHeaders: ['Content-Type']
+  allowedHeaders: ['Content-Type'],
+  credentials: true // Enable credentials for cross-origin requests (if needed)
 };
 
 app.use(cors(corsOptions));
@@ -21,8 +21,9 @@ const mongoURI = 'mongodb+srv://chinufreefire1233:gdEZKGuAbxIf2cCO@cluster0.rara
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}).then(() => console.log('MongoDB connected'))
-  .catch(err => console.log('MongoDB connection error:', err));
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 
 // User Schema
 const userSchema = new mongoose.Schema({
@@ -41,7 +42,7 @@ const orderSchema = new mongoose.Schema({
 
 const Order = mongoose.model('Order', orderSchema);
 
-// Endpoint to get all food items
+// Example food items (temporary until connected to MongoDB)
 const foodItems = [
   { _id: 1, name: 'Cake', price: 10 },
   { _id: 2, name: 'Pizza', price: 12 },
@@ -50,6 +51,7 @@ const foodItems = [
   { _id: 5, name: 'Ice Cream', price: 5 }
 ];
 
+// Endpoint to get all food items
 app.get('/food-items', (req, res) => {
   res.json(foodItems);
 });
