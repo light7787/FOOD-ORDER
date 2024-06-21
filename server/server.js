@@ -3,14 +3,14 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-const app = express();
+const app = express(); 
 
-app.use(cors({
-    origin: 'https://food-order-7eo1.vercel.app', // Replace with your actual frontend URL
-    methods: 'GET,PUT,PATCH,POST,DELETE,OPTIONS',
-    allowedHeaders: ['Content-Type', 'Authorization'], 
-    credentials: true // Enable CORS with credentials
-}));
+const corsOptions = {
+  origin: ["http://food-order-7eo1.vercel.app","http://localhost:5000" ],
+  methods: "POST,GET,PUT,DELETE,HEAD,PATCH",
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization','Authentication']
+};
 
 app.use(express.json());
 
