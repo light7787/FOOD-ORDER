@@ -7,10 +7,11 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'food-order-7eo1.vercel.app', // Replace with your actual frontend URL
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true // Enable CORS with credentials
-}));
+    origin: 'https://food-order-7eo1.vercel.app', // Replace with your actual frontend URL
+    methods: 'GET,PUT,PATCH,POST,DELETE',
+    credentials: true // Enable CORS with credentials
+  }));
+  
 app.use(express.json());
 
 // MongoDB Connection
