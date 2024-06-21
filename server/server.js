@@ -3,15 +3,17 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-const app = express(); 
+const app = express();
 
+// Middleware
 const corsOptions = {
-  origin: ["http://food-order-7eo1.vercel.app","http://localhost:5000" ],
+  origin: ["https://food-order-7eo1.vercel.app", "http://localhost:5000"],
   methods: "POST,GET,PUT,DELETE,HEAD,PATCH",
   credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization','Authentication']
+  allowedHeaders: ['Content-Type', 'Authorization', 'Authentication']
 };
 
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // MongoDB Connection
