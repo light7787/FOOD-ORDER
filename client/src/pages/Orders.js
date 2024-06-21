@@ -15,7 +15,7 @@ const Orders = () => {
 
     const fetchOrders = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/orders');
+            const res = await axios.get('food-order-vert-kappa.vercel.app/orders');
             setOrders(res.data);
         } catch (err) {
             console.error('Failed to fetch orders:', err);
@@ -24,7 +24,7 @@ const Orders = () => {
 
     const fetchFoodItems = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/food-items');
+            const res = await axios.get('food-order-vert-kappa.vercel.app/food-items');
             setFoodItems(res.data);
         } catch (err) {
             console.error('Failed to fetch food items:', err);
@@ -43,7 +43,7 @@ const Orders = () => {
                 foodItem,
                 totalAmount: selectedFoodItem.price
             };
-            const res = await axios.post('http://localhost:5000/orders', newOrder);
+            const res = await axios.post('food-order-vert-kappa.vercel.app/orders', newOrder);
             setOrders([...orders, res.data]);
             setCustomerName('');
             setFoodItem('');
