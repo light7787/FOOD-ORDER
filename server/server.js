@@ -123,6 +123,9 @@ app.post('/orders', async (req, res) => {
 app.get('/orders', async (req, res) => {
   try {
     const orders = await Order.find();
+    if (orders.length === 0) {
+      return res.status(404).json({ error: 'No orders found' });
+    }
     res.status(200).json(orders);
   } catch (error) {
     console.error('Error fetching orders:', error);
