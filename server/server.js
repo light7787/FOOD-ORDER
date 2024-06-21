@@ -32,7 +32,7 @@ const orderSchema = new mongoose.Schema({
     totalAmount: Number
 });
 const corsOptions = {
-    origin: 'https://your-react-app.vercel.app', // Replace with your actual client URL
+    origin: '*', // Replace with your actual client URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Allow cookies to be sent
     optionsSuccessStatus: 204 // Some legacy browsers (IE11, various SmartTVs) choke on 204
