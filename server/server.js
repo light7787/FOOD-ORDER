@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 
 const app = express();
 
-// Middleware
 app.use(cors({
     origin: 'https://food-order-7eo1.vercel.app', // Replace with your actual frontend URL
     methods: 'GET,PUT,PATCH,POST,DELETE,OPTIONS',
